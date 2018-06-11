@@ -39,6 +39,12 @@
         android:text="Click search and your URL will show up here!"
         android:textSize="22sp" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="search"
+        android:text="@string/search"/>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
