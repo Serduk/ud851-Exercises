@@ -16,5 +16,8 @@
 <resources>
     <string name="app_name">Github Query</string>
     <string name="search">Search</string>
-    <!--TODO (1) Add a string stating that an error has occurred-->
+    <string name="error_message">Something go wrong</string>
+    <string name="make_a_search">Make a search!</string>
+    <string name="click_search_and_your_url_will_show_up_here">Click search and your URL will show up here!</string>
+    <string name="enter_a_query_then_click_search">Enter a query, then click Search</string>
 </resources>
