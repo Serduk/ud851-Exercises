@@ -15,16 +15,16 @@
  */
 package com.example.android.explicitintent;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
     /* Fields that will store our EditText and Button */
     private EditText mNameEntry;
@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
              */
             @Override
             public void onClick(View v) {
-                // TODO (1) Retrieve the text from the EditText and store it in a variable
+                String text = String.valueOf(mNameEntry.getText());
 
                 /*
                  * Storing the Context in a variable in this case is redundant since we could have
@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
                  */
                 Intent startChildActivityIntent = new Intent(context, destinationActivity);
 
-                // TODO (2) Use the putExtra method to put the String from the EditText in the Intent
+                startChildActivityIntent.putExtra(Intent.EXTRA_TEXT, text);
 
                 /*
                  * Once the Intent has been created, we can use Activity's method, "startActivity"
