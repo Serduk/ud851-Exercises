@@ -40,12 +40,5 @@ public class ChildActivity extends Activity {
             mDisplayText.setText(text);
 
         }
-
-
-        // TODO (4) Create an if statement to check if this Intent has the extra we passed from MainActivity
-
-        // TODO (5) If the Intent contains the correct extra, retrieve the text
-
-        // TODO (6) If the Intent contains the correct extra, use it to set the TextView text
     }
 }
