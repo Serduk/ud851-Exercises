@@ -15,9 +15,9 @@
  */
 package com.example.android.asynctaskloader;
 
+import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -30,11 +30,13 @@ import com.example.android.asynctaskloader.utilities.NetworkUtils;
 import java.io.IOException;
 import java.net.URL;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
     // TODO (1) Create a static final key to store the query's URL
+    private static final String QUERY_URL = "QUERY_URL";
 
     // TODO (2) Create a static final key to store the search's raw JSON
+    private static final String JSON_RESULT = "JSON_RESULT";
 
     private EditText mSearchBoxEditText;
 
@@ -60,6 +62,10 @@ public class MainActivity extends AppCompatActivity {
         mLoadingIndicator = (ProgressBar) findViewById(R.id.pb_loading_indicator);
 
         // TODO (9) If the savedInstanceState bundle is not null, set the text of the URL and search results TextView respectively
+        if (savedInstanceState != null) {
+            mSearchBoxEditText.setText(savedInstanceState.getString(QUERY_URL));
+            mSearchResultsTextView.setText(savedInstanceState.getString(JSON_RESULT));
+        }
     }
 
     /**
@@ -103,6 +109,22 @@ public class MainActivity extends AppCompatActivity {
         mErrorMessageDisplay.setVisibility(View.VISIBLE);
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int itemThatWasClickedId = item.getItemId();
+        if (itemThatWasClickedId == R.id.action_search) {
+            makeGithubSearchQuery();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     public class GithubQueryTask extends AsyncTask<URL, Void, String> {
 
         @Override
@@ -135,22 +157,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int itemThatWasClickedId = item.getItemId();
-        if (itemThatWasClickedId == R.id.action_search) {
-            makeGithubSearchQuery();
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
     // TODO (3) Override onSaveInstanceState to persist data across Activity recreation
     // Do the following steps within onSaveInstanceState
     // TODO (4) Make sure super.onSaveInstanceState is called before doing anything else
@@ -160,4 +166,13 @@ public class MainActivity extends AppCompatActivity {
 
     // TODO (7) Put the contents of the TextView that contains our raw JSON search results into a variable
     // TODO (8) Using the key for the raw JSON search results, put the search results into the outState Bundle
+
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putString(QUERY_URL, mSearchBoxEditText.getText().toString());
+        outState.putString(JSON_RESULT, mSearchResultsTextView.getText().toString());
+    }
 }
