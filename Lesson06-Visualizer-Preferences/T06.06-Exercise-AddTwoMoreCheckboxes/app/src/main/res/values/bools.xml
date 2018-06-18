@@ -2,4 +2,5 @@
 <resources>
     <bool name="pref_show_bass_default">true</bool>
     <!-- TODO (3) Add any extra booleans for the new checkboxes -->
+
 </resources>

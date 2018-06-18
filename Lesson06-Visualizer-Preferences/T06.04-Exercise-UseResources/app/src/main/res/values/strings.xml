@@ -8,10 +8,14 @@
           - - - - - - - - - - - - - - - -->
     <!-- TODO (1) Add Strings for checkbox preference -->
     <string name="check_box_preferences_key" translatable="false">show_bass</string>
+    <string name="check_mid_key" translatable="false">show_mid</string>
+    <string name="check_treble_key" translatable="false">show_treble</string>
 
     <string name="summary_off">Hidden</string>
     <string name="summary_on">Shown</string>
     <string name="show_bass_tittle">Show Bass</string>
+    <string name="show_mid_tittle">Show Mid</string>
+    <string name="show_treble_tittle">Show Treble</string>
 
     <!-- Value in SharedPreferences for red color option -->
     <string name="pref_color_red_value" translatable="false">red</string>

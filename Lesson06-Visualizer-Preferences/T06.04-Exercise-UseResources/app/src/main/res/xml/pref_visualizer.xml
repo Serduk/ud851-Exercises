@@ -11,4 +11,19 @@
         android:summaryOn="@string/summary_on"
         android:title="@string/show_bass_tittle" />
 
+    <CheckBoxPreference
+        android:defaultValue="@bool/pref_show_mid_default"
+        android:key="@string/check_mid_key"
+        android:summaryOff="@string/summary_off"
+        android:summaryOn="@string/summary_on"
+        android:title="@string/show_mid_tittle" />
+
+    <CheckBoxPreference
+        android:defaultValue="@bool/pref_show_treble_default"
+        android:key="@string/check_treble_key"
+        android:summaryOff="@string/summary_off"
+        android:summaryOn="@string/summary_on"
+        android:title="@string/show_treble_tittle" />
+
+
 </PreferenceScreen>
