@@ -111,11 +111,10 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected Cursor doInBackground(Void... voids) {
             ContentResolver resolver = getContentResolver();
-            Cursor cursor = resolver.query(DroidTermsExampleContract.CONTENT_URI,
+
+
+            return resolver.query(DroidTermsExampleContract.CONTENT_URI,
                     null, null, null, null);
-
-
-            return cursor;
         }
 
         @Override
