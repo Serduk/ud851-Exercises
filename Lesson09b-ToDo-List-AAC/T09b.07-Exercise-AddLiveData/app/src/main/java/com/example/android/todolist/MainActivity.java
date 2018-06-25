@@ -133,7 +133,7 @@ public class MainActivity extends AppCompatActivity implements TaskAdapter.ItemC
             @Override
             public void onChanged(@Nullable List<TaskEntry> taskEntries) {
                 taskEntries.remove(this);
-                Log.d("LIVE DATA", "UPDATE DATABASE FROM LIVE DATA")
+                Log.d("LIVE DATA", "UPDATE DATABASE FROM LIVE DATA");
                 mAdapter.setTasks(taskEntries);
             }
         });
