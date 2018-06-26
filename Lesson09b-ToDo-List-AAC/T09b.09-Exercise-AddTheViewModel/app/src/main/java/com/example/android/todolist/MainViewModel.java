@@ -1,7 +1,32 @@
 package com.example.android.todolist;
 
-// TODO (1) make this class extend AndroidViewModel and implement its default constructor
-public class MainViewModel {
+import android.app.Application;
+import android.arch.lifecycle.AndroidViewModel;
+import android.arch.lifecycle.LiveData;
+import android.support.annotation.NonNull;
+import android.util.Log;
+
+import com.example.android.todolist.database.AppDatabase;
+import com.example.android.todolist.database.TaskEntry;
+
+import java.util.List;
+
+public class MainViewModel extends AndroidViewModel {
+
+    private final static String LOG = MainViewModel.class.getSimpleName();
+
+    private LiveData<List<TaskEntry>> tasks;
+
+    public MainViewModel(@NonNull Application application) {
+        super(application);
+    }
+
+    public LiveData<List<TaskEntry>> getTasks() {
+        AppDatabase database = AppDatabase.getInstance(this.getApplication());
+        Log.d(LOG, "MainViewModel USED");
+        tasks = database.taskDao().loadAllTasks();
+        return tasks;
+    }
 
     // TODO (2) Add a tasks member variable for a list of TaskEntry objects wrapped in a LiveData
 
