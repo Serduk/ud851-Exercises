@@ -1,7 +1,24 @@
 package com.example.android.todolist;
 
-// TODO (1) Make this class extend ViewModel ViewModelProvider.NewInstanceFactory
-public class AddTaskViewModelFactory {
+import android.arch.lifecycle.ViewModel;
+import android.arch.lifecycle.ViewModelProvider;
+
+import com.example.android.todolist.database.AppDatabase;
+
+public class AddTaskViewModelFactory extends ViewModelProvider.NewInstanceFactory {
+
+    private final AppDatabase mDB;
+    private final int mTaskId;
+
+    public AddTaskViewModelFactory(AppDatabase mDB, int mTaskId) {
+        this.mDB = mDB;
+        this.mTaskId = mTaskId;
+    }
+
+    public <T extends ViewModel> T create(Class<T> modelClass) {
+        return (T) new AddTaskViewModel(mDB, mTaskId);
+    }
+
 
     // TODO (2) Add two member variables. One for the database and one for the taskId
 
