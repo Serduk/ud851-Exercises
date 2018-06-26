@@ -85,8 +85,6 @@ public class AddTaskActivity extends AppCompatActivity {
                         populateUI(taskEntry);
                     }
                 });
-
-
             }
         }
     }

@@ -80,10 +80,6 @@ public class AddTaskActivity extends AppCompatActivity {
                 AddTaskViewModelFactory addTaskViewModelFactory = new AddTaskViewModelFactory(mDb, mTaskId);
                 final AddTaskViewModel viewModel = ViewModelProviders.of(this).get(AddTaskViewModel.class);
 
-                // TODO (10) Declare a AddTaskViewModelFactory using mDb and mTaskId
-                // TODO (11) Declare a AddTaskViewModel variable and initialize it by calling ViewModelProviders.of
-                // for that use the factory created above AddTaskViewModel
-                // TODO (12) Observe the LiveData object in the ViewModel. Use it also when removing the observer
                 viewModel.getTask().observe(this, new Observer<TaskEntry>() {
                     @Override
                     public void onChanged(@Nullable TaskEntry taskEntry) {
