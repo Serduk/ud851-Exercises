@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+
+    TODO (9) Copy activity_main.xml into the layout-land folder to have 2 layout xml files for the same activity
+    TODO (10) Re-organize the views in the landscape file to fit all in the one screen
+-->
 <layout xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android">
