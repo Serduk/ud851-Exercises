@@ -24,7 +24,6 @@ import com.example.android.boardingpass.utilities.FakeDataUtils;
 
 public class MainActivity extends AppCompatActivity {
 
-    //TODO (3) Create a data binding instance called mBinding of type ActivityMainBinding
     ActivityMainBinding mBinding;
 
     @Override
